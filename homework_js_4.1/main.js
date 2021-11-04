@@ -5,5 +5,9 @@ for ( i = 0; i < 10; i++ ) {
 }
 
 console.log(array)
-let getMinArray = Math.min (... array);
-console.log (getMinArray)
+
+
+function getMinArray (array) {
+    return Math.min(...array)
+}
+console.log(getMinArray(array))
