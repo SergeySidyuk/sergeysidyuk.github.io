@@ -10,7 +10,7 @@ for ( i = 0; i < 10; i++ ) {
 console.log(array)
 
 
-function getMinArray (array) {
+function getMinArray (arr) {
     return Math.min(...array)
 }
 console.log(getMinArray(array))
