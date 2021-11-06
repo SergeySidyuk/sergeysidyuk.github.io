@@ -97,3 +97,29 @@ let user ={}
  console.log(user)
  delete user.name
 console.log(user)
+
+
+
+// САМОСТОЯТЕЛЬНАЯ РАБОТА 
+
+// Напишите функцию, которая сравнивает два массива и возвращает true, если они идентичны.
+
+function compareArray(a, b){
+    if(!Array.isArray(a,b)) {
+        return null;
+    }
+    if(a.length !== b.length)
+       return false;
+
+       for(i = 0; i < a.length; i++)
+       console.log(i,a[i],b[i])
+       if(a[i] !== b[i]){
+        return false;
+       } else {
+        return true;
+       }
+    }
+
+let a = [1 ,3 ,5];
+let b = [1 ,3 ,5];
+console.log(compareArray(a, b))
