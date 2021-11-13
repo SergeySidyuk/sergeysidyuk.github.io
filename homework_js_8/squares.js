@@ -55,3 +55,37 @@ for (let i = 0; i < myElementsRedAndYellow.length; i++) {
 // Написать код, который создаст на странице 2 прямоугольника разного цвета и размера.
 // При наведении курсора мыши на прямоугольник вывести в консоль размер этого прямоугольника.
 // При клике на прямоугольник - выдать уведомление, в котором будет русское название цвета этого прямоугольника.
+
+
+let div1 = document.createElement('div');
+div1.style.cssText = `width :200px;
+    height : 100px;
+    background-color: blue;
+    margin-bottom: 20px;
+    `;
+document.body.append(div1)
+
+let div2 = document.createElement('div');
+div2.style.cssText = `width :300px;
+    height : 150px;
+    background-color: green;
+    margin-bottom: 20px;
+    `;
+document.body.append(div2)
+
+
+div1.onmouseover = function () {
+    console.log(`Высота : ${div1.clientHeight}px, Ширина : ${div1.clientWidth}px`)
+};
+
+div1.onclick = function () {
+    alert('Синий');
+};
+
+div2.onmouseover = function () {
+    console.log(`Высота : ${div2.clientHeight}px, Ширина : ${div2.clientWidth}px`)
+};
+
+div2.onclick = function () {
+    alert('Зеленый');
+};
