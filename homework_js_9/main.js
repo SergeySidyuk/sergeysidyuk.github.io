@@ -24,10 +24,7 @@ $(document).ready(function() {
          } 
         }, 2000);
         setTimeout(function () {
-            for (let i = 0; i < 100; i++) {
-            let changeDivs = $('<div style="width: 100px; height: 100px; margin: 5px; background-color: purple;"></div>');
-            document.body.prepend(changeDivs[0]);
-        }
+          $('div').css('background-color', 'purple')
         }, 4000);
         setTimeout(function () {
             $('div').css ({
