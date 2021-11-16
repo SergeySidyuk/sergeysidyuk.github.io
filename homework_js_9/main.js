@@ -48,11 +48,13 @@ $(document).ready(function() {
                     $( this ).css( "background-color", "#78866b" ); 
                   } if  (i % 3 - 2 === 0 && index % 15 !== 0 ) {
                     $( this ).css( "background-color", "red" );  
+                    $(this).addClass('delete');
+                  } if (i % 20 === 0) {
+                    $(this).css("background-color", "yellow")
                   }
                 });
         }, 8000);
         setTimeout(function () {
-            $('div').remove();
-
+            $('div.delete').remove();
         }, 10000);
     });
