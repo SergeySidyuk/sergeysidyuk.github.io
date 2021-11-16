@@ -14,8 +14,6 @@
 
 // сделать на jQuery
 
-// setTimeout(function () {
-         
 $(document).ready(function() {
     setTimeout(function () {
     for (let i = 0; i < 100; i++) {
@@ -24,7 +22,11 @@ $(document).ready(function() {
          } 
         }, 2000);
         setTimeout(function () {
-          $('div').css('background-color', 'purple')
+          $('div').css ({
+            'background-color': 'purple',
+            'width': '100px',
+            'height': '100px',
+          });
         }, 4000);
         setTimeout(function () {
             $('div').css ({
@@ -40,13 +42,13 @@ $(document).ready(function() {
         }, 6000);
         setTimeout(function () {
                 $( "div" ).each(function(index) {
-                for (i= 0 ; i < index ; i++)
+                for (i = 0; i < index; i++)
                   if(index  % 15 + 1 === 0 ) { 
                     $( this ).css( "background-color", "#78866b" ); 
                   } if  (i % 3 - 2 === 0 && index % 15 !== 0 ) {
                     $( this ).css( "background-color", "red" );  
                     $(this).addClass('delete');
-                  } if (i % 20 === 0) {
+                  } if (i % 19  === 0) {
                     $(this).css("background-color", "yellow")
                   }
                 });
