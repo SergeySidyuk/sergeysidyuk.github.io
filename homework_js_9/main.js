@@ -57,3 +57,31 @@ $(document).ready(function() {
             $('div.delete').remove();
         }, 10000);
     });
+
+
+// Написать код, который создаст на странице 2 прямоугольника разного цвета и размера.
+// При наведении курсора мыши на прямоугольник вывести в консоль размер этого прямоугольника.
+// При клике на прямоугольник - выдать уведомление, в котором будет русское название цвета этого прямоугольника.
+
+// сделать на jQuery
+
+let div1 = $('<div style="width: 200px; height: 100px; margin: 20px; background-color: deepskyblue;"></div>');
+          document.body.prepend(div1[0]);
+          div1.addClass('first')
+
+let div2 = $('<div style="width: 300px; height: 150px; margin: 20px; background-color: green;"></div>');
+          document.body.prepend(div2[0]);
+          div2.addClass('second')
+
+$('div.first').mouseover(function() {
+  console.log(`Высота : ${div1[0].clientWidth}px, Ширина : ${div1[0].clientHeight}px`)
+});
+$('div.first').click(function() {
+    alert('Голубой');
+});
+$('div.second').mouseover(function() {
+  console.log(`Высота : ${div2[0].clientWidth}px, Ширина : ${div2[0].clientHeight}px`)
+});
+$('div.second').click(function() {
+  alert('Зеленый');
+});
