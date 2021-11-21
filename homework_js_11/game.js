@@ -17,7 +17,6 @@ $(document).ready(function () {
         this.directionX = options.startDirectionX || 1;
         this.directionY = 1;
 
-        console.log("ball", this.id, this.directionX);
 
         this.createView = function () {
             let result = document.createElement("div");
