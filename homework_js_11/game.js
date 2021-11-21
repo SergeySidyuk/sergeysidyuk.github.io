@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    const GAME_STEP_DELAY = 10;
+    let GAME_STEP_DELAY = 10;
 
     let currentGameStep = 0;
 
@@ -30,7 +30,6 @@ $(document).ready(function () {
               width: ${this.diametr}px;
               height: ${this.diametr}px;
               background: ${this.color}`;
-            result.innerText = this.id;
             document.documentElement.append(result);
             return result;
         };
@@ -177,17 +176,7 @@ $(document).ready(function () {
 
     objects.push(
         new Ball({
-            diametr: 50,
-            color: "blue",
-            x: 100,
-            y: 100,
-            startDirectionX: -1,
-        })
-    );
-
-    objects.push(
-        new Ball({
-            diametr: 40,
+            diametr: 30,
             color: "orange",
             x: 200,
             y: 200,
@@ -223,70 +212,160 @@ $(document).ready(function () {
     
     objects.push(
         new Pin({
-            x: 40,
+            x: 20,
             y: 20,
-            width: 50,
-            height: 30,
-            color: "purple",
-        })
-    );
-
-    objects.push(
-        new Pin({
-            x: 110,
-            y: 20,
-            width: 50,
-            height: 30,
-            color: "purple",
-        })
-    );
-
-    objects.push(
-        new Pin({
-            x: 180,
-            y: 20,
-            width: 50,
-            height: 30,
-            color: "purple",
-        })
-    );
-
-    objects.push(
-        new Pin({
-            x: 250,
-            y: 20,
-            width: 50,
-            height: 30,
+            width: 60,
+            height: 20,
             color: "purple",
         })
     );
     
     objects.push(
         new Pin({
-            x: 320,
+            x: 85,
             y: 20,
-            width: 50,
-            height: 30,
+            width: 60,
+            height: 20,
             color: "purple",
         })
     );
     
     objects.push(
         new Pin({
-            x: 390,
+            x: 150,
             y: 20,
-            width: 50,
-            height: 30,
+            width: 60,
+            height: 20,
             color: "purple",
         })
     );
-
+    
     objects.push(
         new Pin({
-            x: 460,
+            x: 215,
             y: 20,
-            width: 50,
-            height: 30,
+            width: 60,
+            height: 20,
+            color: "purple",
+        })
+    );
+    
+    objects.push(
+        new Pin({
+            x: 280,
+            y: 20,
+            width: 60,
+            height: 20,
+            color: "purple",
+        })
+    );
+    
+    objects.push(
+        new Pin({
+            x: 345,
+            y: 20,
+            width: 60,
+            height: 20,
+            color: "purple",
+        })
+    );
+    
+    objects.push(
+        new Pin({
+            x: 410,
+            y: 20,
+            width: 60,
+            height: 20,
+            color: "purple",
+        })
+    );
+    
+    objects.push(
+        new Pin({
+            x: 475,
+            y: 20,
+            width: 60,
+            height: 20,
+            color: "purple",
+        })
+    );
+    
+    objects.push(
+        new Pin({
+            x: 20,
+            y: 50,
+            width: 60,
+            height: 20,
+            color: "purple",
+        })
+    );
+    
+    objects.push(
+        new Pin({
+            x: 85,
+            y: 50,
+            width: 60,
+            height: 20,
+            color: "purple",
+        })
+    );
+    
+    objects.push(
+        new Pin({
+            x: 150,
+            y: 50,
+            width: 60,
+            height: 20,
+            color: "purple",
+        })
+    );
+    
+    objects.push(
+        new Pin({
+            x: 215,
+            y: 50,
+            width: 60,
+            height: 20,
+            color: "purple",
+        })
+    );
+    
+    objects.push(
+        new Pin({
+            x: 280,
+            y: 50,
+            width: 60,
+            height: 20,
+            color: "purple",
+        })
+    );
+    
+    objects.push(
+        new Pin({
+            x: 345,
+            y: 50,
+            width: 60,
+            height: 20,
+            color: "purple",
+        })
+    );
+    
+    objects.push(
+        new Pin({
+            x: 410,
+            y: 50,
+            width: 60,
+            height: 20,
+            color: "purple",
+        })
+    );
+    
+    objects.push(
+        new Pin({
+            x: 475,
+            y: 50,
+            width: 60,
+            height: 20,
             color: "purple",
         })
     );
@@ -364,14 +443,17 @@ $(document).ready(function () {
             }
 
             if (ball && pin) {
-                if (
-                    (ball.x + ball.diametr === pin.x ||
-                        ball.x === pin.x + pin.width) &&
-                    ball.y > pin.y &&
-                    ball.y < pin.y + pin.height
+                if ( ball.x > pin.x &&
+                    ball.x < pin.x + pin.width &&
+                    ball.y === pin.y + pin.height
+                    // (ball.x + ball.diametr === pin.x ||
+                    //     ball.x === pin.x + pin.width) &&
+                    // ball.y > pin.y &&
+                    // ball.y < pin.y + pin.height
                 ) {
                     ball.invertDirectionY();
                     pin.remove();
+                    GAME_STEP_DELAY--
                 }
             }
         }
@@ -403,7 +485,7 @@ $(document).ready(function () {
         let gameOver = isGameOver();
 
         currentGameStep++;
-        if (currentGameStep < 10000 && !gameOver) {
+        if (currentGameStep < 100000 && !gameOver) {
             setTimeout(doGameStep, GAME_STEP_DELAY);
         } else {
             alert(`Игра закончена, ваш счет : ${score}`);
